@@ -62,8 +62,22 @@ $(document).ready(function() {
         }
     }
 
+    // nav on scroll //
+    $('.header-nav a').on('click', function (e) {
+        e.preventDefault();
+        let target = $(this.hash);
+        if (!!target.length) {
+            $('html, body').animate({
+                scrollTop: target.offset().top - 50
+            }, 500);
+            return false;
+        }
+    });
+
 });
 $(document).on('scroll', function(){
+
+    const vScroll = $(window).scrollTop();
 
     $('.anim-on-scroll').each(function () {
         if(isScrolledIntoView($(this))) {
@@ -77,7 +91,13 @@ $(document).on('scroll', function(){
         $('.header').removeClass('scrolled');
     }
 
-
+    // switch active nav link //
+    $('section').each(function (i) {
+        if ($(this).position().top <= vScroll) {
+            $('.header-nav a[href*="#"]:not([href="#"]).active').removeClass('active');
+            $('.header-nav a').eq(i).addClass('active');
+        }
+    });
 
     // close mobile on scoll //
     closeNav();
