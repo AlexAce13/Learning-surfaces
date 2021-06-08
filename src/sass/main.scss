@@ -1,0 +1,30 @@
+/*
+Global settings
+ */
+@import "base/custom-properties";
+@import "base/mixins";
+@import "base/base";
+@import "base/fonts";
+@import "base/classes";
+@import "base/typography";
+
+/*
+Libs
+ */
+@import "../libs/slick.css";
+@import "../libs/grid.min.css";
+@import "../libs/nice-select.css";
+
+
+/*
+Pages
+ */
+
+
+/*
+Components
+ */
+@import "components/header";
+@import "components/footer";
+@import "components/app";
+@import "components/buttons";
