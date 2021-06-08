@@ -1,0 +1,203 @@
+.section-hero{
+  position: relative;
+  //background-color: var(--color-grey);
+  padding: 206px 0 180px;
+  overflow: hidden;
+    &:before{
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: -50%;
+      top: 0;
+      background: var(--color-grey);
+      z-index: -1;
+        @include d(991){
+          left: 0;
+        }
+    }
+    &:after{
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -50%;
+      background: var(--color-white);
+      z-index: -1;
+        @include d(991){
+          right: 0;
+          width: 317px;
+        }
+        @include d(575){
+          width: 100%;
+        }
+    }
+    .title-1{
+      margin-bottom: 31px;
+        span{
+          position: relative;
+          z-index: 1;
+          white-space: nowrap;
+            &:after{
+            content: '';
+            position: absolute;
+            width: 101%;
+            left: -1.5%;
+            bottom: 10px;
+            background: var(--color-green);
+            height: 15px;
+            border-radius: 10px;
+            z-index: -1;
+          }
+      }
+        @include d(991){
+          & + p{
+            max-width: 80%;
+          }
+        }
+        @include d(767){
+          & + p{
+            max-width: 60%;
+          }
+        }
+        @include d(480){
+          margin-bottom: 15px;
+            & + p{
+              max-width: 80%;
+            }
+        }
+    }
+    .button{
+      margin-top: 15px;
+      margin-bottom: 15px;
+        @include d(480){
+          margin-top: 30px;
+        }
+    }
+    .hero{
+      &-bg{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        pointer-events: none;
+          .picture-wrap{
+            margin-left: 18%;
+            picture,
+            img{
+              height: 100%;
+              width: 100%;
+              max-width: unset;
+              object-fit: contain;
+              object-position: center bottom;
+            }
+            @include d(991){
+              margin-right: -145px;
+              width: 760px;
+              margin-left: auto;
+            }
+            @include d(575){
+              width: 100%;
+              margin-right: 0;
+            }
+          }
+          @include d(1300){
+            height: 85%;
+          }
+          @include d(1200){
+            height: 75%;
+          }
+          @include d(991){
+            justify-content: flex-end;
+          }
+          @include d(575){
+            height: 630px;
+            width: 550px;
+            left: -65px;
+          }
+          @include d(480){
+            left: -112px;
+            width: 590px;
+          }
+      }
+      &-vector {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        pointer-events: none;
+        &.hero{
+          &-lt_svg {
+            left: 0;
+            top: 0;
+            width: auto;
+            height: auto;
+              svg {
+              width: 100%;
+              height: auto;
+            }
+          }
+          &-rb_svg {
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: auto;
+            z-index: 2;
+              svg {
+                width: 100%;
+                height: auto;
+              }
+              @include d(1200){
+                width: 25%;
+              }
+              @include d(991){
+                display: none;
+              }
+          }
+          &-b_svg {
+            right: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            margin-bottom: -2px;
+            z-index: 2;
+
+            svg {
+              width: 100%;
+              height: auto;
+            }
+          }
+          &-spots_svg {
+            bottom: 0;
+            right: 30%;
+            z-index: 3;
+              @include d(991){
+                display: none;
+              }
+          }
+        }
+      }
+    }
+    .container{
+      .content{
+        position: relative;
+        .hero-dots_svg{
+          top: -30%;
+          right: -5%;
+        }
+      }
+    }
+    @include d(767){
+      padding: 165px 0 300px;
+    }
+    @include d(480){
+      padding: 145px 0 350px;
+    }
+}

@@ -1,0 +1,73 @@
+.section-second{
+  position: relative;
+  padding: 240px 0 185px;
+    .container{
+      position: relative;
+      .b2-image_right{
+        width: 100%;
+        height: 600px;
+          picture,
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+          @include d(991){
+            height: 70vw;
+            margin-top: 30px;
+          }
+          @include d(767){
+            height: 90vw;
+          }
+          @include d(480){
+            margin-top: 68px;
+            height: 106vw;
+          }
+      }
+    }
+    .title-3{
+      margin-top: 47px;
+      margin-bottom: 30px;
+        & + p{
+          @include m(992){
+            max-width: 400px;
+          }
+        }
+        @include d(480){
+          margin-top: 25px;
+          margin-bottom: 23px;
+        }
+    }
+    .b2-tr_svg{
+      left: -6%;
+      position: absolute;
+      top: 13%;
+        @include d(991){
+          width: 350px;
+            svg{
+              width: 100%;
+            }
+        }
+        @include d(767){
+          left: -25%;
+          top: 5%;
+        }
+        @include d(480){
+          left: -28%;
+          top: 0;
+          width: 290px;
+        }
+    }
+    .b2-br_svg{
+      position: absolute;
+      bottom: -5%;
+      right: 5%;
+    }
+    @include d(767){
+      padding: 100px 0 105px;
+    }
+    @include d(480){
+      padding: 100px 0 75px;
+    }
+}

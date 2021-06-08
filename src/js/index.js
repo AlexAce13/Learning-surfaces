@@ -1,62 +1,129 @@
 $(document).ready(function() {
-    console.log('ready');
+
     $('select').niceSelect();
+
+    $('.tab-content:first-child .prod-carousel').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true
+    });
+    $('.testimonals-carousel').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 600,
+        cssEase: 'ease',
+        easing: 'linear',
+        arrows: true,
+        fade: true,
+        adaptiveHeight: true,
+        prevArrow:'.testimonials-arrows .prev-arrow',
+        nextArrow:'.testimonials-arrows .next-arrow',
+        dots: false
+    });
+
+    // tabsChange();
+    $('.tab-button').on('click', function(){
+        tabsChange($(this));
+    });
+    $('.faq-item_question').on('click', function(){
+        const box = $(this).closest('.faq-item');
+        const answer = box.find('.faq-item_answer');
+        $('.faq-item_answer').not(answer).slideUp();
+        $('.faq-item').not(box).removeClass('active');
+        if(box.hasClass('active')) {
+            box.removeClass('active');
+            answer.slideUp();
+        } else {
+            box.addClass('active');
+            answer.slideDown();
+        }
+    });
+
+    function tabsChange ($tabButton){
+        $('.tab-button').removeClass('active');
+        $tabButton.addClass('active');
+        var tabNum = $tabButton.data('tab');
+        var curTab = $tabButton.closest('.tabs').find('.tab-content[data-content="'+tabNum+'"]');
+        $('.tab-content').not(curTab).hide();
+        curTab.show();
+        curTab.find('.anim-on-scroll').removeClass('hide');
+        // console.log(!!curTab.find('.prod-carousel')[0]);
+        if(!curTab.find('.slick-slider')[0]){
+            curTab.find('.prod-carousel').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                dots: true
+            });
+        }
+    }
+
 });
 $(document).on('scroll', function(){
-    console.log($(document).scrollTop());
+
+    $('.anim-on-scroll').each(function () {
+        if(isScrolledIntoView($(this))) {
+            $(this).removeClass('hide');
+        }
+    });
+
     if($(document).scrollTop() > 30){
         $('.header').addClass('scrolled');
     } else {
         $('.header').removeClass('scrolled');
     }
+
+
+
+    // close mobile on scoll //
+    closeNav();
 });
-$('.tab-content:first-child .prod-carousel').slick({
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    dots: true
+
+$(window).on('load', function () {
+
+    $('#wrapper').removeClass('loading');
+
+    $('.anim-on-scroll').each(function () {
+        if(isScrolledIntoView($(this))) {
+            $(this).removeClass('hide');
+        }
+    });
+
 });
-$('.testimonals-carousel').slick({
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 600,
-    cssEase: 'ease',
-    easing: 'linear',
-    arrows: true,
-    prevArrow:'.testimonials-arrows .prev-arrow',
-    nextArrow:'.testimonials-arrows .next-arrow',
-    dots: false
+
+// toggle nav mobile //
+const burger = $('.burger');
+const nav = $('.header-nav');
+
+burger.on('click', function () {
+    burger.hasClass('is-active') ? closeNav() : openNav();
 });
-// tabsChange();
-$('.tab-button').on('click', function(){
-    tabsChange($(this));
+
+function openNav() {
+    burger.addClass('is-active');
+    nav.fadeIn();
+}
+
+function closeNav() {
+    burger.removeClass('is-active');
+    nav.fadeOut();
+}
+
+Splitting({
+    target: $('.slice'),
+    by: 'lines'
 });
-$('.faq-item_question').on('click', function(){
-    console.log($(this).closest('.faq-item'));
-    if($(this).closest('.faq-item').hasClass('active')){
-        $(this).closest('.faq-item').removeClass('active');
-    } else {
-        $('.faq-item.active').removeClass('active');
-        $(this).closest('.faq-item').addClass('active');
-    }
-})
-function tabsChange ($tabButton){
-    $('.tab-button').removeClass('active');
-    $tabButton.addClass('active');
-    var tabNum = $tabButton.data('tab');
-    var curTab = $tabButton.closest('.tabs').find('.tab-content[data-content="'+tabNum+'"]');
-    $('.tab-content').not(curTab).hide();
-    curTab.show();
-    // console.log(!!curTab.find('.prod-carousel')[0]);
-    if(!!curTab.find('.prod-carousel')[0]){
-        curTab.find('.prod-carousel').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            dots: true
-        });
-    }
+
+function isScrolledIntoView(elem) {
+    const docViewTop = $(window).scrollTop();
+    const docViewBottom = docViewTop + $(window).height();
+
+    const elemTop = $(elem).offset().top;
+    const elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }

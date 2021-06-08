@@ -1,0 +1,133 @@
+.section-testimonials{
+  padding: 277px 0 222px;
+    .testimonials{
+      width: 80%;
+      max-width: 970px;
+      margin: 0 auto;
+      position: relative;
+        &:before{
+          content: open-quote;
+          font-family: var(--font-title-demi);
+          font-size: 144px;
+          line-height: 0.43em;
+          letter-spacing: -0.02em;
+          color: var(--color-blue);
+          position: absolute;
+          left: 0;
+          top: -30px;
+            @include d(480){
+              font-size: 122px;
+            }
+        }
+        .testimonial-item{
+          position: relative;
+          .testimonial-text{
+            margin-bottom: 33px;
+              &.title-3{
+                @include d(480){
+                  font-size: 20px;
+                }
+              }
+          }
+          .testimonial-author{
+            display: flex;
+            & > div{
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: center;
+            }
+            .author-photo{
+              margin-right: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 64px;
+              height: 64px;
+              position: relative;
+                img{
+
+                }
+                svg{
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                }
+            }
+            .author-name{
+              color: var(--color-red);
+            }
+          }
+        }
+        .testimonials-arrows{
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          display: flex;
+            .testimonial-arrow{
+              position: relative;
+              cursor: pointer;
+              svg{
+                path{
+                  transition: all 0.4s linear;
+                }
+                transition: all 0.4s linear;
+              }
+              svg:first-child{
+                path{
+                  fill: var(--color-grey);
+                }
+              }
+              svg:last-child{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                path{
+                  //fill: var(--color-black);
+                  stroke: var(--color-black);
+                }
+              }
+              @include hover(991){
+                &:hover{
+                  svg:first-child{
+                    path{
+                      fill: var(--color-blue);
+                    }
+                  }
+                  svg:last-child{
+                    path{
+                      //fill: var(--color-black);
+                      stroke: var(--color-white);
+                    }
+                  }
+                }
+              }
+            }
+            .prev-arrow{
+              margin-right: 10px;
+            }
+            .next-arrow{
+              margin-left: 10px;
+            }
+            @include d(991){
+              bottom: auto;
+              top: -75px;
+            }
+        }
+        @include d(991){
+          width: 100%;
+        }
+    }
+    @include d(1300){
+      padding: 250px 0 220px;
+    }
+    @include d(991){
+      padding: 250px 0 120px;
+    }
+    @include d(480){
+      padding: 100px 0 37px;
+    }
+}

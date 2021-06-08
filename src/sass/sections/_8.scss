@@ -1,0 +1,169 @@
+.section-locations{
+  background: var(--color-grey);
+  padding: 43px 0 110px;
+  margin: 150px 0;
+    .title-2{
+      margin-bottom: 56px;
+        @include d(480){
+          margin-bottom: 16px;
+        }
+    }
+    //overflow: hidden;
+    .locations-top_svg{
+      width: 100%;
+      left: 0;
+      bottom: 95%;
+      z-index: -1;
+      pointer-events: none;
+        @include d(991){
+          z-index: 0;
+        }
+    }
+    .locations-bottom_svg{
+      height: auto;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 0;
+      transform: translateY(62%);
+    }
+    .tabs-locations{
+      position: relative;
+      .tabs-nav{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        width: 30%;
+        margin: 15px auto 15px 0;
+        padding: 0;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 0px 1px var(--color-grey2);
+        background: var(--color-white);
+        //border: 1px solid var(--color-grey2);
+        display: flex;
+        justify-content: flex-start;
+          .locations-nav_label{
+            position: absolute;
+            left: 0;
+            bottom: 105%;
+          }
+          .tab-button{
+            @extend .title-5;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 18px 30px 17px;
+            transition: all 0.4s linear;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+            @include hover(991){
+              &:not(.active):hover{
+                //background: var(--color-red);
+                color: var(--color-red);
+              }
+            }
+            &.active{
+              background: var(--color-red);
+              color: var(--color-white);
+            }
+          }
+          @include d(991){
+            position: relative;
+            width: 62%;
+            margin: 55px auto 15px 0;
+          }
+          @include d(767){
+            width: 100%;
+          }
+          @include d(480){
+            margin: 65px auto 15px 0;
+          }
+      }
+      .tabs-content{
+        .tab-content{
+          &:not(:first-child){
+            display: none;
+          }
+          .location-filter{
+            width: 62%;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+              .input-wrap{
+              //display: inline-block;
+              margin: 15px auto;
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              .nice-select{
+                border: 1px solid var(--color-grey2);
+                border-radius: 10px;
+                padding: 16px 20px;
+                height: auto;
+                width: 100%;
+                font-size: 14px;
+                line-height: 1.21em;
+                color: var(--color-black);
+                .list{
+                  width: 100%;
+                }
+              }
+              .contact-info{
+                width: 100%;
+                border: 1px solid var(--color-grey2);
+                border-radius: 10px;
+                background: var(--color-white);
+                padding: 30px 20px;
+                .info-address{
+                  margin: 10px 0 5px;
+                }
+                .button{
+                  margin: 20px 0 0;
+                  padding: 8px 20px 7px;
+                }
+              }
+            }
+              @include d(991){
+                padding-top: 0;
+              }
+              @include d(767){
+                width: 100%;
+              }
+          }
+          .location-map_svg{
+            svg{
+              height: auto;
+              width: 100%;
+              path{
+                cursor: pointer;
+                transition: all 0.4s linear;
+                &:not(.border){
+                  .active{
+                    fill: var(--color-blue)!important;
+                  }
+                  &:hover{
+                    fill: var(--color-blue)!important;
+                  }
+                }
+              }
+            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+              @include d(1300){
+                margin-left: -50px;
+                margin-right: -50px;
+              }
+          }
+        }
+      }
+    }
+    @include d(991){
+      margin: 50px 0;
+    }
+}
