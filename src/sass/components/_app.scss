@@ -681,6 +681,58 @@ main .section{
               border-radius: 10px;
               background: var(--color-white);
               padding: 30px 20px;
+              .info-location{
+                padding-left: 15px;
+                position: relative;
+                &:before{
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  width: 10px;
+                  height: 10px;
+                  background: url('../images/icons/map-pin.svg');
+                  background-size: 9px;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                }
+              }
+              .info-tel{
+                padding-left: 15px;
+                margin-right: 15px;
+                position: relative;
+                &:before{
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  width: 10px;
+                  height: 10px;
+                  background: url('../images/icons/phone.svg');
+                  background-size: 9px;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                }
+              }
+              .info-email{
+                padding-left: 15px;
+                position: relative;
+                &:before{
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  width: 10px;
+                  height: 10px;
+                  background: url('../images/icons/mail.svg');
+                  background-size: 9px;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                }
+              }
               .info-address{
                 margin: 10px 0 5px;
               }
