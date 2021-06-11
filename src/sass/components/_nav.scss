@@ -1,0 +1,34 @@
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+    li {
+      font-size: 12px;
+      line-height: 1.25em;
+      text-transform: uppercase;
+      transition: all 0.4s linear;
+      color: var(--color-black);
+      font-family: var(--font-title-demi);
+      margin: 0 19px;
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        @include d(1200){
+          margin: 0 12px;
+        }
+    }
+    a {
+      @include hover(991) {
+        &:hover {
+          color: var(--color-red);
+        }
+      }
+      &.active{
+        color: var(--color-red);
+      }
+    }
+}

@@ -17,8 +17,17 @@ Libs
 
 
 /*
-Pages
+Sections
  */
+@import "sections/1";
+@import "sections/2";
+@import "sections/3";
+@import "sections/4";
+@import "sections/5";
+@import "sections/6";
+@import "sections/7";
+@import "sections/8";
+@import "sections/9";
 
 
 /*
@@ -28,3 +37,5 @@ Components
 @import "components/footer";
 @import "components/app";
 @import "components/buttons";
+@import "components/input";
+@import "components/nav";

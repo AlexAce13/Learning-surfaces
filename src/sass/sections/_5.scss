@@ -1,0 +1,92 @@
+.section-fifth{
+  padding: 0 0 195px;
+  margin-top: 65px;
+    .section{
+      &-bg{
+        position: absolute;
+        width: calc(100% - 120px);
+        height: 100%;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        left: 50%;
+        transform: translateX(-50%);
+          @include d(991){
+            width: 600px;
+            left: 55%;
+          }
+          @include d(480){
+            left: 61%;
+            width: 460px;
+            top: 20px;
+          }
+      }
+      &-vector{
+        left: 50%;
+        transform: translateX(-50%);
+          @include d(991){
+            width: 100%;
+              svg{
+                width: 100%;
+              }
+          }
+          @include d(480){
+            width: 150%;
+            left: 60%;
+          }
+      }
+    }
+    .title-2{
+      margin-bottom: 25px;
+        span{
+          position: relative;
+          z-index: 1;
+          left: -120px;
+          white-space: nowrap;
+            &:after{
+              content: '';
+              position: absolute;
+              width: 103%;
+              left: -1.5%;
+              bottom: 10px;
+              background: var(--color-red);
+              height: 10px;
+              border-radius: 10px;
+              z-index: -1;
+            }
+            @include d(991){
+              left: -70px;
+            }
+        }
+        & + p{
+          max-width: 450px;
+            @include d(991){
+              display: none;
+            }
+        }
+        @include d(991){
+          text-align: center;
+          padding-left: 150px;
+        }
+        @include d(480){
+          padding-left: 150px;
+
+        }
+    }
+    .button{
+      margin: 20px 0;
+      min-width: 140px;
+        @include d(991){
+          margin-left: 190px;
+        }
+        @include d(480){
+          margin-left: 140px;
+        }
+    }
+    @include d(991){
+      text-align: center;
+    }
+    @include d(480){
+      padding: 0 0 87px;
+    }
+}
